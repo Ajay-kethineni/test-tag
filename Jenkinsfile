@@ -19,11 +19,11 @@ pipeline {
 			 def d = new Date(0) 
 			 def tz = TimeZone.getTimeZone('UTC') 
 			 echo d.format('yyyyMMdd', tz) 
-			  next_date = d.format('yyyyMMdd', tz) 
-			  }
+			  build_date = d.format('yyyyMMdd', tz) 
 			  
-                 bat "git branch release-next_date-${env.BUILD_NUMBER}"
-                 bat "git push origin release-next_date-${env.BUILD_NUMBER}"
+                 bat "git branch release-build_date-${env.BUILD_NUMBER}"
+                 bat "git push origin release-build_date-${env.BUILD_NUMBER}"
+				 }
 		}
             }
        } 
