@@ -13,11 +13,8 @@ pipeline {
             }
         }
 		stage('Build Step'){
-			 environment {
-		env.PATH = env.PATH + ";c:\\Windows\\System32"
-		}
             steps{        
-               bat "build.bat" 
+                "build.bat" 
             }
         }
 	
