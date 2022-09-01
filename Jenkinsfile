@@ -8,6 +8,9 @@ pipeline {
                  checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'Githubcredentials', url: 'https://github.com/Ajay-kethineni/test-tag.git']]])
                 
                 }
+				def date = new Date()
+			 def tz =  TimeZone.getTimeZone('UTC')
+			 echo date.format('yyyyMMdd', tz) 
                    echo "main chekout"
 		   bat "git checkout main"
             }
