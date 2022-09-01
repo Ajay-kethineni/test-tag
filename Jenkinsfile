@@ -13,7 +13,7 @@ pipeline {
         stage('Git Tagging') {
             steps {
              echo "In Tagging"
-                 bat "git checkout -b release-$date +%Y%m%d-${env.BUILD_NUMBER}"
+                 bat "git branch release-$date +%Y%m%d-${env.BUILD_NUMBER}"
                  bat "git push"
 		}
             }
