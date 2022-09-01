@@ -1,4 +1,5 @@
 pipeline {
+    agent any
     stages{
         stage('Checkout code') {
             steps {
@@ -11,12 +12,7 @@ pipeline {
 		   bat "git checkout main"
             }
         }
-		stage('Build Step'){
-            steps{        
-                java -version
-                ./build.bat latest
-            }
-        }
+	
         stage('Git Tagging') {
             steps {
 			script{
