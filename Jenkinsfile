@@ -13,8 +13,11 @@ pipeline {
             }
         }
 	
-        stage('Git Tagging') {
-            steps {
+   
+ post{
+        success {
+            echo "Build passed"
+			steps {
 			script{
              echo "In Tagging"
 			  def date = new Date()
@@ -26,6 +29,6 @@ pipeline {
                  bat "git push origin release-${build_date}-${env.BUILD_NUMBER}"
 				 }
 		}
-            }
-       } 
-}
+        }
+        
+        }
