@@ -5,7 +5,7 @@ pipeline {
             steps {
                 script{
                  echo "In Checkout code"
-                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'Githubcredentials', url: 'https://github.com/Ajay-kethineni/test-tag.git']]])
+                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'Githubcredentials', url: 'https://github.com/Ajay-kethineni/test-tag.git']]])
                 
                 }
             }
@@ -13,8 +13,8 @@ pipeline {
         stage('Git Tagging') {
             steps {
              echo "In Tagging"
-                 sh "git checkout -b release-$date +%Y%m%d-${env.BUILD_NUMBER}"
-                 sh "git push"
+                 bat "git checkout -b release-$date +%Y%m%d-${env.BUILD_NUMBER}"
+                 bat "git push"
 		}
             }
        } 
