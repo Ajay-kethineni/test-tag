@@ -8,12 +8,13 @@ pipeline {
                  checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'Githubcredentials', url: 'https://github.com/Ajay-kethineni/test-tag.git']]])
                 
                 }
+		    script{
 		    try{
                    bat "cd Users"
 		    }
 		   catch (Exception e) {
       echo 'Exception occurred: ' + e.toString()
-  }   
+		   }   }
 
                    echo "main chekout"
 		   bat "git checkout main"
