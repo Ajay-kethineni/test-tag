@@ -9,7 +9,7 @@ pipeline {
                 
                 }
               
-    bat "C:\Users\akethine\.jenkins\workspace"
+    bat "cd C:\Users\akethine\.jenkins\workspace"
 
                    echo "main chekout"
 		   bat "git checkout main"
