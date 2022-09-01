@@ -5,25 +5,18 @@ pipeline {
             steps {
                 script{
                  echo "In Checkout code"
-                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'test', url: 'https://github.com/Ajay-kethineni/Demo.git']]])
+                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'Githubcredentials', url: 'https://github.com/Ajay-kethineni/test-tag.git']]])
                 
                 }
             }
         }
-       
-
-
-        stage ('tagging'){
-		steps{
-        sh "git remote set-url origin git@github.com:Ajay-kethineni/Demo.git"
-        // tags current changeset
-        sh "git tag -a snapshot -m "
-        sh "git push origin :refs/tags/snapshot"
-        // pushes the tags
-        sh "git push --tags"
+        stage('Git Tagging') {
+            steps {
+             echo "In Tagging"
+                 sh "git checkout -b release-$date +%Y%m%d-${env.BUILD_NUMBER}"
+                 sh "git push"
 		}
-		}
-    
-} 
+            }
+       } 
 }
 
