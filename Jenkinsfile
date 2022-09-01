@@ -1,8 +1,5 @@
 pipeline {
     agent any
-	 environment {
-		env.PATH = env.PATH + ";c:\\Windows\\System32"
-		}
     stages{
         stage('Checkout code') {
             steps {
@@ -16,6 +13,9 @@ pipeline {
             }
         }
 		stage('Build Step'){
+			 environment {
+		env.PATH = env.PATH + ";c:\\Windows\\System32"
+		}
             steps{        
                bat "build.bat" 
             }
