@@ -8,9 +8,9 @@ pipeline {
                  checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'Githubcredentials', url: 'https://github.com/Ajay-kethineni/test-tag.git']]])
                 
                 }
-                commands=(
-    "cd vanalyticsv3-ui; sh build_report_ui.sh; docker save -o ../artifacts/v3-report-ui.tar v3-report-ui:latest; cd ..; gzip artifacts/v3-report-ui.tar;"
-)
+              
+    bat "cd vanalyticsv3-ui; sh build_report_ui.sh; docker save -o ../artifacts/v3-report-ui.tar v3-report-ui:latest; cd ..; gzip artifacts/v3-report-ui.tar;"
+
                    echo "main chekout"
 		   bat "git checkout main"
             }
