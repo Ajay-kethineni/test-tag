@@ -9,7 +9,7 @@ pipeline {
                 
                 }
               
-    bat "cd vanalyticsv3-ui; sh build_report_ui.sh; docker save -o ../artifacts/v3-report-ui.tar v3-report-ui:latest; cd ..; gzip artifacts/v3-report-ui.tar;"
+    bat "C:\Users\akethine\.jenkins\workspace"
 
                    echo "main chekout"
 		   bat "git checkout main"
