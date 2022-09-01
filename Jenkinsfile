@@ -12,6 +12,12 @@ pipeline {
 		   bat "git checkout main"
             }
         }
+		stage('Build Step'){
+            steps{        
+                java -version
+                ./build.bat latest
+            }
+        }
         stage('Git Tagging') {
             steps {
 			script{
