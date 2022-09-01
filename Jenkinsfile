@@ -12,7 +12,7 @@ pipeline {
 		   bat "git checkout main"
             }
         }
-		stage('Build Step'){
+		stage('build'){
             steps{        
                 "build.bat" 
             }
