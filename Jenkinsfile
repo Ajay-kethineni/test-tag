@@ -9,11 +9,11 @@ pipeline {
                 
                 }
 		    try{
-    bat "cd Users"
+                   bat "cd Users"
 		    }
-		     catch(all) {
-        echo all;
-    }   
+		   catch (Exception e) {
+      echo 'Exception occurred: ' + e.toString()
+  }   
 
                    echo "main chekout"
 		   bat "git checkout main"
