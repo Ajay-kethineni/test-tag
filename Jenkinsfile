@@ -21,9 +21,9 @@ pipeline {
 			 echo d.format('yyyyMMdd', tz) 
 			  next_date = d.format('yyyyMMdd', tz) 
 			  }
-			  branch_name = release-next_date-${env.BUILD_NUMBER}
+			  
                  bat "git branch release-next_date-${env.BUILD_NUMBER}"
-                 bat "git push origin"
+                 bat "git push origin release-next_date-${env.BUILD_NUMBER}"
 		}
             }
        } 
