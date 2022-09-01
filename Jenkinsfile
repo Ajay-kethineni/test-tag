@@ -14,7 +14,7 @@ pipeline {
         }
 		stage('Build Step'){
             steps{        
-                ./build.bat latest
+                build.bat 
             }
         }
 	
