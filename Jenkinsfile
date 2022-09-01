@@ -21,8 +21,8 @@ pipeline {
 			 echo d.format('yyyyMMdd', tz) 
 			  def build_date = d.format('yyyyMMdd', tz) 
 			  
-                 bat "git branch release-build_date-${env.BUILD_NUMBER}"
-                 bat "git push origin release-build_date-${env.BUILD_NUMBER}"
+                 bat "git branch release-${build_date}-${env.BUILD_NUMBER}"
+                 bat "git push origin release-${build_date}-${env.BUILD_NUMBER}"
 				 }
 		}
             }
