@@ -15,7 +15,9 @@ pipeline {
         stage('Git Tagging') {
             steps {
              echo "In Tagging"
-			 def date = new Date()
+			 def d = new Date(0) 
+			 def tz = TimeZone.getTimeZone('GMT') 
+			 echo d.format('dd/MMM/yyyy', tz) 
 			  next_date = curr_release.format("yyyyMMdd", TimeZone.getTimeZone('UTC'))
                  bat "git branch release-next_date-${env.BUILD_NUMBER}"
                  bat "git push"
