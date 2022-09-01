@@ -12,7 +12,7 @@ pipeline {
 		   bat "git checkout main"
             }
         }
-	
+	}
    
  post{
         success {
@@ -32,3 +32,4 @@ pipeline {
         }
         
         }
+}
