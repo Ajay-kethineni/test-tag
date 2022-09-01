@@ -12,11 +12,6 @@ pipeline {
 		   bat "git checkout main"
             }
         }
-		stage('build'){
-            steps{        
-                bat "build.sh" 
-            }
-        }
 	
         stage('Git Tagging') {
             steps {
