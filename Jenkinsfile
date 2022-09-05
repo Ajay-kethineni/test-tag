@@ -28,14 +28,9 @@ pipeline {
         success {
             echo "Build passed"
 			script{
-             echo "In Tagging"
-			  def date = new Date()
-			 def tz =  TimeZone.getTimeZone('UTC')
-			 echo date.format('yyyyMMdd', tz) 
-			  def build_date = date.format('yyyyMMdd', tz) 
-			  
-                 bat "git branch release-${build_date}-${env.BUILD_NUMBER}"
-                 bat "git push origin release-${build_date}-${env.BUILD_NUMBER}"
+             echo "In Tagging"		  
+                 sh "git branch ${env.Branch_Name}-${env.BUILD_NUMBER}"
+                 sh "git push origin ${env.Branch_Name}-${env.BUILD_NUMBER}"
 				 }
         }
         
